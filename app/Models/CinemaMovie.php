@@ -10,8 +10,4 @@ class CinemaMovie extends Model
     use HasFactory;
 
     protected $fillable = ['cinema_id','movie_id'];
-
-    public function ticket(){
-        return  $this->hasMany(Ticket::class,'cinema_movie_id');
-    }
 }

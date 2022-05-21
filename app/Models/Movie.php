@@ -10,8 +10,4 @@ class Movie extends Model
     use HasFactory;
 
     protected $fillable = ['name','year','genre','director'];
-
-    public function cinemaMovies(){
-        return  $this->belongsTo(CinemaMovie::class,'id','movie_id');
-    }
 }
