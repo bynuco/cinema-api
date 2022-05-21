@@ -28,14 +28,22 @@ class TicketController extends Controller
             ], ResponseAlias::HTTP_BAD_REQUEST);
         }
 
-        $ticket = Ticket::create([
-            'seat_number' => $request->input('seat_number'),
-            'cinema_movie_id' => $request->input('cinema_movie_id'),
-            'user_id' => Auth::user()->id
-        ]);
+        try {
+            $ticket = Ticket::create([
+                'seat_number' => $request->input('seat_number'),
+                'cinema_movie_id' => $request->input('cinema_movie_id'),
+                'user_id' => Auth::user()->id
+            ]);
 
-        return response()->json([
-            "ticket_information" => $ticket
-        ], ResponseAlias::HTTP_OK);
+            return response()->json([
+                "ticket_information" => $ticket
+            ], ResponseAlias::HTTP_OK);
+        }catch (\Exception $exception){
+            return response()->json([
+                'errors' => \Lang::get('messages.unique_buy_ticket'),
+                'status' => ResponseAlias::HTTP_BAD_REQUEST,
+            ], ResponseAlias::HTTP_BAD_REQUEST);
+        }
+
     }
 }
