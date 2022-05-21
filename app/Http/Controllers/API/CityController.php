@@ -21,6 +21,7 @@ class CityController extends Controller
     public function getCinemasByCityId($id){
         $city = City::where('id', $id)->first();
 
+        // Only "id,name" cinemas
         $cityCinemas = $city->cinemas->map(function ($cinema){
             return [
                 'id' => $cinema->id,
