@@ -13,7 +13,7 @@ class CinemaController extends Controller
     public function getMovies($id)
     {
         $movies = DB::table('cinema_movies')
-            ->select('cinema_movies.id','total_seat','name','year','director','genre')
+            ->select('cinema_movies.id as cinema_movie_id','total_seat','name','year','director','genre')
             ->join('movies','movies.id','=','cinema_movies.movie_id')
             ->where('cinema_id',$id)
             ->get();

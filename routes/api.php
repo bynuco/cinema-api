@@ -26,7 +26,6 @@ Route::middleware('auth:api')->group(function () {
 
     // MOVIES ROUTES
     Route::controller(MovieController::class)->prefix('movies')->group(function () {
-        Route::get('/', 'index')->name('movies.index');
         Route::get('/{cinema_movie_id}/seats', 'seats');
     });
 
