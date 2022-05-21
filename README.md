@@ -1,4 +1,6 @@
-## Cinema API Project
+## Cinema API Projesi
+
+-Laravel 9 ve Passport paketi ile geliştirilmiş örnek bir api projesi.
 
 ### Kayıt
 Kullanıcı kaydı oluşturmak için register methodu kullanılır.
