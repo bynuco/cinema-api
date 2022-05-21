@@ -29,7 +29,7 @@ Kullanıcı kaydı oluşturmak için register methodu kullanılır.
 
 ### Giriş
 
-Kimlik doğrulama için bearer token kullanılmaktadır veönderilen her requestin headerında bulunması gerekir.
+Kimlik doğrulama için bearer token kullanılmaktadır ve gönderilen her requestin headerında bulunması gerekir.
 Token alabilmek için kullanıcı bilgilerinin login methodu ile gönderilmesi gerekir.
 
 
@@ -99,13 +99,13 @@ Cities methodu tüm şehirleri listelemek için kullanılır.
 
 ### Şehir Sinemaları
 
+Bir şehirde bulunan sinemaları listelemek için kullanılır.
+Parametre olarak adreste cities methodundan dönen responsetaki şehir idsi gönderilmelidir.
+
 | Method Adresi   | /api/cities/{city_id}/cinemas |
 |-----------------|-------------------------------|
 | Method Tipi     | GET                           |
 | Token           | VAR                           |
-
-Bir şehirde bulunan sinemaları listelemek için kullanılır. 
-Parametre olarak adreste cities methodundan dönen responsetaki şehir idsi gönderilmelidir.
 
 
 #### Örnek Response 
