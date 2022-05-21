@@ -2,6 +2,11 @@
 
 -Laravel 9 ve Passport paketi ile geliştirilmiş örnek bir api projesi.
 
+### Kurulum ( örnek veriler )
+- php artisan migrate
+- php artisan passport:install
+- php artisan db:seed
+
 ### Kayıt
 Kullanıcı kaydı oluşturmak için register methodu kullanılır.
 
