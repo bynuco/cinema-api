@@ -15,7 +15,7 @@ class CinemaFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->streetName(),
+            'name' => $this->faker->colorName . " Sineması",
             'city_id' => rand(1,5)
         ];
     }
