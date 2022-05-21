@@ -18,6 +18,8 @@ class DatabaseSeeder extends Seeder
 
         $this->call(CitySeeder::class);
         Cinema::factory(50)->create();
+        $this->call(MovieSeeder::class);
+        $this->call(CinemaMovieSeeder::class);
 
 
         // \App\Models\User::factory(10)->create();

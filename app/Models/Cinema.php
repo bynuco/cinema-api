@@ -11,4 +11,8 @@ class Cinema extends Model
     public $timestamps = false;
 
     protected $fillable = ['name','city_id'];
+
+    public function movie(){
+        return $this->hasMany(CinemaMovie::class,'cinema_id');
+    }
 }
