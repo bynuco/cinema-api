@@ -22,6 +22,7 @@ class CinemaMovieSeeder extends Seeder
         for ($i = 1; $i < 300; $i++) {
             try{
                 CinemaMovie::create([
+                    'total_seat' => rand(20,50),
                     'cinema_id' => rand(1,30),
                     'movie_id' => rand(1,20),
                 ]);

@@ -17,6 +17,8 @@ namespace App\Models{
  * @property int $id
  * @property string $name
  * @property int $city_id
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\CinemaMovie[] $movie
+ * @property-read int|null $movie_count
  * @method static \Database\Factories\CinemaFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|Cinema newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Cinema newQuery()
@@ -33,10 +35,13 @@ namespace App\Models{
  * App\Models\CinemaMovie
  *
  * @property int $id
+ * @property int $total_seat
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property int $cinema_id
  * @property int $movie_id
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Ticket[] $ticket
+ * @property-read int|null $ticket_count
  * @method static \Illuminate\Database\Eloquent\Builder|CinemaMovie newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|CinemaMovie newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|CinemaMovie query()
@@ -44,6 +49,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|CinemaMovie whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|CinemaMovie whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|CinemaMovie whereMovieId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|CinemaMovie whereTotalSeat($value)
  * @method static \Illuminate\Database\Eloquent\Builder|CinemaMovie whereUpdatedAt($value)
  */
 	class CinemaMovie extends \Eloquent {}
@@ -77,6 +83,7 @@ namespace App\Models{
  * @property string $year
  * @property string $director
  * @property string $genre
+ * @property-read \App\Models\CinemaMovie|null $cinemaMovies
  * @method static \Illuminate\Database\Eloquent\Builder|Movie newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Movie newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Movie query()
@@ -89,6 +96,30 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Movie whereYear($value)
  */
 	class Movie extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * App\Models\Ticket
+ *
+ * @property int $id
+ * @property int $seat_number
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property int $user_id
+ * @property int $cinema_movie_id
+ * @property-read \App\Models\CinemaMovie|null $cinemaMovies
+ * @method static \Illuminate\Database\Eloquent\Builder|Ticket newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Ticket newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Ticket query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Ticket whereCinemaMovieId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Ticket whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Ticket whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Ticket whereSeatNumber($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Ticket whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Ticket whereUserId($value)
+ */
+	class Ticket extends \Eloquent {}
 }
 
 namespace App\Models{

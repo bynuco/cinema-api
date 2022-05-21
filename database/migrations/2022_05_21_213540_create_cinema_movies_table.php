@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('cinema_movies', function (Blueprint $table) {
             $table->id();
+            $table->tinyInteger('total_seat');
             $table->timestamps();
 
             // Foreign Key Constraints

@@ -19,7 +19,12 @@ class AuthController extends Controller
 
         if (Auth::attempt(['email' => $email, 'password' => $password])) {
             $token = Auth::user()->createToken('login')->accessToken;
-            return response()->json(['token' => $token], 200);
+            return response()->json([
+                'id' => Auth::user()->id,
+                'name' => Auth::user()->name,
+                'email' => Auth::user()->email,
+                'token' => $token
+            ], ResponseAlias::HTTP_OK);
         }
 
         return response()->json(['error' => 'Unauthorized'], ResponseAlias::HTTP_UNAUTHORIZED);
