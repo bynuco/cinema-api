@@ -5,14 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class City extends Model
+class Cinema extends Model
 {
     use HasFactory;
-
     public $timestamps = false;
-    protected $fillable = ['name'];
 
-    public function cinemas(){
-        return $this->hasMany(Cinema::class);
-    }
+    protected $fillable = ['name','city_id'];
 }

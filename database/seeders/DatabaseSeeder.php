@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Cinema;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -16,6 +17,8 @@ class DatabaseSeeder extends Seeder
     {
 
         $this->call(CitySeeder::class);
+        Cinema::factory(50)->create();
+
 
         // \App\Models\User::factory(10)->create();
 
